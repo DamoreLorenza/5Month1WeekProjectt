@@ -28,5 +28,17 @@ public class Prenotazione {
         @JoinColumn(name = "postazione")
         private Postazione postazione;
 
+        public Prenotazione(LocalDate dataPrenotazione){
+                this.dataPrenotazione=dataPrenotazione;
+        }
 
-    }
+        @Override
+        public String toString() {
+                return "Prenotazione{" +
+                        "uuid=" + uuid +
+                        ", dataPrenotazione=" + dataPrenotazione +
+                        ", utente=" + utente +
+                        ", postazione=" + postazione +
+                        '}';
+        }
+}

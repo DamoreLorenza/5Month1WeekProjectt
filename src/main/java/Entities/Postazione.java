@@ -38,6 +38,12 @@ public class Postazione {
         @Column(name = "utente")
         private Utente utente;
 
+        public Postazione (String codiceUnivoco, String descrizione, TipoPostazione tipo, int numeroMassimoOccupanti){
+                this.codiceUnivoco= codiceUnivoco;
+                this.descrizione=descrizione;
+                this.tipo= tipo;
+                this.numeroMassimoOccupanti=numeroMassimoOccupanti;
+        }
 
         @Override
         public String toString() {
