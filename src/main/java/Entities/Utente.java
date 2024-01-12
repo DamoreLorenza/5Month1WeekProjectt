@@ -1,16 +1,21 @@
 package Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.util.UUID;
 
-@Getter
-@Setter
+
+
+//ho messo i get e i set nonostante i @setter e @getter che non so perchè non me li legge, qualcosa mi sfugge. mentre @noargsconstructor in automatico mi da il constructor che io non ho messo e mi setgnala che serve. percui non capisco perchè non mi legge nulla. idem per le altre entities
+
 @Entity
 @Table(name = "utente")
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Utente {
 
@@ -42,9 +47,7 @@ public Utente(String username, String nomeCompleto, String email){
     this.email=email;
 }
 
-    public Utente() {
 
-    }
 
     @Override
     public String toString() {

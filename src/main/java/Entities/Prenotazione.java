@@ -1,17 +1,18 @@
 package Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.UUID;
-
-@Getter
-@Setter
 @Entity
 @Table(name = "prenotazione")
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Prenotazione {
         @Id
@@ -28,9 +29,6 @@ public class Prenotazione {
         @JoinColumn(name = "postazione")
         private Postazione postazione;
 
-        public Prenotazione(){
-                this.dataPrenotazione=dataPrenotazione;
-        }
 
         @Override
         public String toString() {

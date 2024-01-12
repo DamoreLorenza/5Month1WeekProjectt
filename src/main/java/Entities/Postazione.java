@@ -1,16 +1,17 @@
 package Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
-
-@Getter
-@Setter
 @Entity
 @Table(name = "postazione")
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Postazione {
 
@@ -45,9 +46,7 @@ public class Postazione {
                 this.numeroMassimoOccupanti=numeroMassimoOccupanti;
         }
 
-        public Postazione() {
 
-        }
 
         public UUID getUuid() {
                 return uuid;

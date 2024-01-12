@@ -2,12 +2,10 @@ import DAO.EdificioDAO;
 import DAO.PostazioneDAO;
 import DAO.PrenotazioneDAO;
 import DAO.UtenteDAO;
-import Entities.Postazione;
-import Entities.Prenotazione;
-import Entities.TipoPostazione;
-import Entities.Utente;
+import Entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -72,7 +70,42 @@ public class GestionePrenotazioniRunner implements CommandLineRunner {
         postazione.setEdificio(edificioDAO.findByNome("zona1"));
         postazioneDAO.save(postazione);
 
-
-
     }
+
+    public void UtenteConPrenotazione2() {
+        Utente utente = new Utente();
+        utente.setUsername("CiaoCiaone");
+        utente.setNomeCompleto("Ciao Ciaone");
+        utente.setEmail("ciaociaone@gmail.com");
+        utenteDAO.save(utente);
+
+        Postazione postazione = new Postazione();
+        postazione.setCodiceUnivoco("NonSo1");
+        postazione.setDescrizione("Zona 2");
+        postazione.setTipo(TipoPostazione.OPENSPACE);
+        postazione.setNumeroMassimoOccupanti(1);
+        postazione.setEdificio(EdificioOne());
+        postazioneDAO.save(postazione);
+
+        Prenotazione prenotazione = new Prenotazione();
+        prenotazione.setUtente(utente);
+        prenotazione.setPostazione(postazione);
+        prenotazione.setDataPrenotazione(LocalDate.now());
+        prenotazioneDAO.save(prenotazione);
+    }
+
+    private Edificio EdificioOne() {
+        Edificio edificio = edificioDAO.findByNome("zona2");
+
+        if (edificio == null) {
+            edificio = new Edificio();
+            edificio.setNome("Empire");
+            edificio.setIndirizzo("dietro all'angolo");
+            edificio.setCitta("nei miei sogni");
+            edificioDAO.save(edificio);
+        }
+
+        return edificio;
+    }
+
 }
