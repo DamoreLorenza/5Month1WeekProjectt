@@ -45,6 +45,54 @@ public class Postazione {
                 this.numeroMassimoOccupanti=numeroMassimoOccupanti;
         }
 
+        public Postazione() {
+
+        }
+
+        public UUID getUuid() {
+                return uuid;
+        }
+
+        public String getCodiceUnivoco() {
+                return codiceUnivoco;
+        }
+
+        public void setCodiceUnivoco(String codiceUnivoco) {
+                this.codiceUnivoco = codiceUnivoco;
+        }
+
+        public String getDescrizione() {
+                return descrizione;
+        }
+
+        public void setDescrizione(String descrizione) {
+                this.descrizione = descrizione;
+        }
+
+        public TipoPostazione getTipo() {
+                return tipo;
+        }
+
+        public void setTipo(TipoPostazione tipo) {
+                this.tipo = tipo;
+        }
+
+        public int getNumeroMassimoOccupanti() {
+                return numeroMassimoOccupanti;
+        }
+
+        public void setNumeroMassimoOccupanti(int numeroMassimoOccupanti) {
+                this.numeroMassimoOccupanti = numeroMassimoOccupanti;
+        }
+
+        public Edificio getEdificio() {
+                return edificio;
+        }
+
+        public void setEdificio(Edificio edificio) {
+                this.edificio = edificio;
+        }
+
         @Override
         public String toString() {
                 return "Postazione{" +
@@ -56,4 +104,6 @@ public class Postazione {
                         ", edificio=" + edificio +
                         '}';
         }
+
+
 }

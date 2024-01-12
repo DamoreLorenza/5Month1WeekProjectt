@@ -9,4 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface EdificioDAO extends JpaRepository<Edificio, UUID>{
+    Edificio findByNome(String nomeEdificio);
 }
