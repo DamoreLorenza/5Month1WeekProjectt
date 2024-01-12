@@ -32,6 +32,11 @@ public class Utente {
     @JoinColumn(name = "postazione")
     private Postazione postazione;
 
+    @ManyToOne
+    @JoinColumn(name = "edificio")
+    private Edificio edificio;
+
+
 
     @Override
     public String toString() {

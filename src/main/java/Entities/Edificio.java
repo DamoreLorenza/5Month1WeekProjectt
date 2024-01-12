@@ -29,6 +29,10 @@ public class Edificio {
     @Column(name = "postazione")
     private Edificio edificio;
 
+    @OneToMany(mappedBy = "edificio")
+    @Column(name = "utente")
+    private Utente utente;
+
     @Override
     public String toString() {
         return "Edificio{" +
