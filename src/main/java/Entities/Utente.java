@@ -17,10 +17,20 @@ public class Utente {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private UUID uuid;
+    @Column(name = "username")
         private String username;
+    @Column(name = "nome_completo")
         private String nomeCompleto;
+    @Column(name = "email")
         private String email;
 
+    @OneToMany(mappedBy = "utente")
+    @Column(name = "prenotazione")
+    private Prenotazione prenotazione;
+
+    @ManyToOne
+    @JoinColumn(name = "postazione")
+    private Postazione postazione;
 
 
     @Override
